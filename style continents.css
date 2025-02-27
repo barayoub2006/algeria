@@ -1,0 +1,117 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #1abeff 0%, #ff80bf 100%);
+}
+
+h1 {
+  text-align: center;
+}
+
+.states {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.state {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.places {
+  display: none;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.state.active .places {
+  display: block;
+}
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.navbar {
+  margin-top: 20px;
+}
+
+.box {
+  width: 1200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: linear-gradient(to right,#ff80bf 0%, #1abeff  100%);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.box:hover {
+  background-color: #f0f0f0;
+}
+
+h2 {
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 18px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: none;
+}
+
+li {
+  padding: 5px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  color: #007bff;
+}
+
+.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.active ul {
+  display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .box {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

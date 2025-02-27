@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+	.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 5px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Payment Details</h1>
+    <form id="payment-form">
+      <div class="form-group">
+        <label for="name">Cardholder Name</label>
+        <input type="text" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" required>
+      </div>
+      <div class="form-group">
+        <label for="expiration">Expiration Date</label>
+        <input type="text" id="expiration" required>
+      </div>
+      <div class="form-group">
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" required>
+      </div>
+      <button type="submit">Pay Now</button>
+    </form>
+  </div>
+
+  <script src="script.js">
+	// فحص صحة بيانات البطاقة
+function validateCardDetails(cardDetails) {
+  // قم بتنفيذ المنطق المرتبط بالتحقق من صحة بيانات البطاقة هنا
+  if (cardDetails.name === "" || cardDetails.number === "" || cardDetails.expiration === "" || cardDetails.cvv === "") {
+    return false;
+  }
+
+  return true;
+}
+
+// معالجة عملية الدفع
+function processPayment(paymentDetails) {
+  // تنفيذ المنطق المرتبط بمعالجة الدفع هنا
+  // قد تحتاج إلى استخدام AJAX أو استدعاء خدمة الدفع الخارجية هنا
+  // قم بتنفيذ الخطوات اللازمة لإتمام الدفع
+  // ارجع Promise للتعامل مع النتيجة
+  
+  // مثال بسيط لعملية الدفع
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const random = Math.random();
+      if (random < 0.8) {
+        resolve("تمت عملية الدفع بنجاح.");
+      } else {
+        reject("حدث خطأ أثناء معالجة الدفع.");
+      }
+    }, 2000);
+  });
+}
+
+// التقاط حدث إرسال النموذج
+document.getElementById("payment-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const cardDetails = {
+    name: document.getElementById("name").value,
+    number: document.getElementById("card-number").value,
+    expiration: document.getElementById("expiration").value,
+    cvv: document.getElementById("cvv").value
+  };
+
+  if (validateCardDetails(cardDetails)) {
+    processPayment(cardDetails)
+      .then((message) => {
+        alert(message);
+        // تنفيذ الإجراءات اللازمة بعد عملية الدفع الناجحة
+      })
+      .catch((error) => {
+        alert(error);
+        // تنفيذ الإجراءات اللازمة في حالة حدوث خطأ في عملية الدفع
+      });
+  } else {
+    alert("الرجاء تعبئة جميع حقول البطاقة بشكل صحيح.");
+  }
+});
+
+  </script>
+</body>
+
+</html>

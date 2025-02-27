@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Appointment Form</title>
+ <style>
+ #appointmentForm {
+ width: 50%;
+ margin: 0 auto;
+ }
+ #appointmentForm label {
+ display: block;
+ margin-top: 20px;
+ }
+ #appointmentForm input[type="text"], #appointmentForm input[type="date"], #appointmentForm input[type="time"] {
+ width: 100%;
+ padding: 5px;
+ margin-top: 5px;
+ }
+ #appointmentForm button {
+ width: 100%;
+ padding: 5px;
+ margin-top: 20px;
+ background-color: blue;
+ color: white;
+ border: none;
+ }
+ #signature {
+ width: 50%;
+ margin: 0 auto;
+ margin-top: 50px;
+ }
+ #signature label {
+ display: block;
+ }
+ #signature input[type="text"] {
+ width: 100%;
+ padding: 5px;
+ margin-top: 5px;
+ }
+ #clinic-signature {
+ width: 50%;
+ margin: 0 auto;
+ margin-top: 50px;
+ text-align: center;
+ }
+ #clinic-signature p {
+ margin: 0;
+ }
+ #clinic-signature span {
+ display: block;
+ font-size: 20px;
+ }
+ #clinic-signature img {
+ width: 200px;
+ height: 50px;
+ }
+ </style>
+</head>
+<body>
+ <div id="appointmentForm">
+ <form>
+ <label for="name">Name:</label>
+ <input type="text" id="name" required>
+ <label for="surname">Surname:</label>
+ <input type="text" id="surname" required>
+ <label for="age">Age:</label>
+ <input type="text" id="age" required>
+ <label for="reservationDate">Reservation Date:</label>
+ <input type="date" id="reservationDate" required>
+ <label for="reservationTime">Reservation Time:</label>
+ <input type="time" id="reservationTime" required>
+ <button type="button" onclick="submitForm()">Submit</button>
+ </form>
+ </div>
+ <div id="signature">
+ <form>
+ <label for="signature">Sign:</label>
+ <input type="text" id="signature" required>
+ </form>
+ </div>
+ <div id="clinic-signature">
+ <span>Clinic Signature:</span>
+ <p>
+ <img src="clinic-signature.png" alt="Clinic Signature">
+ </p>
+ </div>
+ <script>
+ function submitForm() {
+ let name = document.getElementById("name").value;
+ let surname = document.getElementById("surname").value;
+ let age = document.getElementById("age").value;
+ let reservationDate = document.getElementById("reservationDate").value;
+ let reservationTime = document.getElementById("reservationTime").value;
+ let signature = document.getElementById("signature").value;
+if(name == ""){
+    alert("Name is missing");
+    return;
+}
+if(surname == ""){
+    alert("Surname is missing");
+    return;
+}
+if(age == ""){
+    alert("Age is missing");
+    return;
+}
+if(reservationDate == ""){
+    alert("Reservation Date is missing");
+    return;
+}
+if(reservationTime == ""){
+    alert("Reservation Time is missing");
+    return;
+}
+if(signature == ""){
+    alert("Signature is missing");
+    return;
+}
+
+alert("Form submitted successfully");
+}
+</script>
+</body>
+</html>
